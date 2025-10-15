@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Калькулятор завес</title>
+  </head>
+  <body>
+    <div class="tilda-calculator-container">
+      <div class="tilda-calculator">
+        <!-- Шаг 1: Выбор типа завесы -->
+        <div class="step">
+          <h2>Выберите тип завесы</h2>
+          <div class="options" id="type-options">
+            <!-- Варианты будут заполнены через JS -->
+          </div>
+        </div>
+
+        <!-- Шаг 2: Выбор типа крепежей -->
+        <div class="step">
+          <h2>Выберите тип крепежей</h2>
+          <div class="options">
+            <label>
+              <input type="radio" name="fasteners" value="galvanized" onchange="calculateCost()" />
+              Оцинкованная сталь
+            </label>
+            <label>
+              <input type="radio" name="fasteners" value="stainless" onchange="calculateCost()" />
+              Нержавеющая сталь
+            </label>
+          </div>
+        </div>
+
+        <!-- Шаг 3: Выбор перекрытия -->
+        <div class="step">
+          <h2>Выберите перекрытие</h2>
+          <div class="options" id="overlap-options">
+            <!-- Варианты будут заполнены через JS -->
+          </div>
+        </div>
+
+        <!-- Шаг 4: Указание размеров проёма -->
+        <div class="step">
+          <h2>Укажите размеры проёма</h2>
+          <input
+            type="number"
+            id="width"
+            placeholder="Ширина проёма (L, мм)"
+            step="10"
+            min="0"
+            oninput="calculateCost()"
+          />
+          <input
+            type="number"
+            id="height"
+            placeholder="Высота проёма (H, мм)"
+            step="10"
+            min="0"
+            oninput="calculateCost()"
+          />
+        </div>
+
+        <!-- Результат -->
+        <div id="result"></div>
+      </div>
+
+      <div class="settings-button-container">
+        <button class="settings-button" onclick="openSettings()">Изменить варианты</button>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

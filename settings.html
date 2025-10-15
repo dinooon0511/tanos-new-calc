@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Настройки калькулятора</title>
+  </head>
+  <body>
+    <div class="settings-container">
+      <div class="settings-header">
+        <h1>Настройки калькулятора</h1>
+        <button class="back-button" onclick="goBack()">← Назад к калькулятору</button>
+      </div>
+
+      <!-- Навигация по разделам -->
+      <div class="settings-tabs">
+        <button class="tab-button active" onclick="openTab('films')">Пленки</button>
+        <button class="tab-button" onclick="openTab('fasteners')">Крепления</button>
+        <button class="tab-button" onclick="openTab('percentages')">Проценты</button>
+      </div>
+
+      <!-- Раздел Пленки -->
+      <div id="films" class="tab-content active">
+        <div class="section-header">
+          <h2>Управление пленками</h2>
+          <button class="add-button" onclick="addNewFilm()">+ Добавить пленку</button>
+        </div>
+
+        <div class="films-list" id="films-list">
+          <!-- Список пленок будет заполнен через JS -->
+        </div>
+      </div>
+
+      <!-- Раздел Крепления -->
+      <div id="fasteners" class="tab-content">
+        <div class="section-header">
+          <h2>Настройка цен на крепления</h2>
+        </div>
+
+        <div class="fasteners-settings">
+          <div class="fastener-category">
+            <h3>Оцинкованная сталь</h3>
+            <div class="price-inputs">
+              <label
+                >Планка 200 мм (опт):
+                <input type="number" id="galvanized_plank_200_wholesale" step="0.01" min="0"
+              /></label>
+              <label
+                >Планка 200 мм (розница):
+                <input type="number" id="galvanized_plank_200_retail" step="0.01" min="0"
+              /></label>
+              <label
+                >Планка 300 мм (опт):
+                <input type="number" id="galvanized_plank_300_wholesale" step="0.01" min="0"
+              /></label>
+              <label
+                >Планка 300 мм (розница):
+                <input type="number" id="galvanized_plank_300_retail" step="0.01" min="0"
+              /></label>
+              <label
+                >Гребенка (опт):
+                <input type="number" id="galvanized_comb_wholesale" step="0.01" min="0"
+              /></label>
+              <label
+                >Гребенка (розница):
+                <input type="number" id="galvanized_comb_retail" step="0.01" min="0"
+              /></label>
+            </div>
+          </div>
+
+          <div class="fastener-category">
+            <h3>Нержавеющая сталь</h3>
+            <div class="price-inputs">
+              <label
+                >Планка 200 мм (опт):
+                <input type="number" id="stainless_plank_200_wholesale" step="0.01" min="0"
+              /></label>
+              <label
+                >Планка 200 мм (розница):
+                <input type="number" id="stainless_plank_200_retail" step="0.01" min="0"
+              /></label>
+              <label
+                >Планка 300 мм (опт):
+                <input type="number" id="stainless_plank_300_wholesale" step="0.01" min="0"
+              /></label>
+              <label
+                >Планка 300 мм (розница):
+                <input type="number" id="stainless_plank_300_retail" step="0.01" min="0"
+              /></label>
+              <label
+                >Гребенка (опт):
+                <input type="number" id="stainless_comb_wholesale" step="0.01" min="0"
+              /></label>
+              <label
+                >Гребенка (розница):
+                <input type="number" id="stainless_comb_retail" step="0.01" min="0"
+              /></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Раздел Проценты -->
+      <div id="percentages" class="tab-content">
+        <div class="section-header">
+          <h2>Настройка процентов изготовления</h2>
+        </div>
+
+        <div class="percentage-settings">
+          <label
+            >Процент для опта (%):
+            <input type="number" id="wholesale_percentage" step="0.1" min="0" max="100"
+          /></label>
+          <label
+            >Процент для розницы (%):
+            <input type="number" id="retail_percentage" step="0.1" min="0" max="100"
+          /></label>
+        </div>
+      </div>
+
+      <!-- Кнопки сохранения -->
+      <div class="save-buttons">
+        <button class="save-button" onclick="saveAllSettings()">Сохранить все изменения</button>
+      </div>
+    </div>
+    <script src="settings.js"></script>
+  </body>
+</html>
