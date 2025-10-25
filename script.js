@@ -303,8 +303,8 @@ function calculateCost() {
   const planksCostWholesale = totalPlanks * plankCostWholesale;
   const planksCostRetail = totalPlanks * plankCostRetail;
 
-  // Количество гребёнок - ВСЕГДА 1 комплект на проем
-  const totalCombs = 1;
+  // Количество гребёнок - 1 комплект на каждый метр ширины проема
+  const totalCombs = Math.ceil(widthM); // Изменено: 1 гребенка на метр
   const combCostWholesale = fastenersPrices.wholesale[fasteners]['comb'];
   const combCostRetail = fastenersPrices.retail[fasteners]['comb'];
 
@@ -332,7 +332,9 @@ function calculateCost() {
           <p>Полосы: ${totalStrips} шт × ${heightM.toFixed(1)} м</p>
           <p>Материал: ${materialCostWholesale.toFixed(2)} руб</p>
           <p>Планки: ${planksCostWholesale.toFixed(2)} руб</p>
-          <p>Гребенка: ${combsCostWholesale.toFixed(2)} руб</p>
+          <p>Гребенка: ${totalCombs} шт × ${combCostWholesale.toFixed(
+    2,
+  )} руб = ${combsCostWholesale.toFixed(2)} руб</p>
           <p>Изготовление (${percentages.wholesale}%): ${manufacturingFeeWholesale.toFixed(
     2,
   )} руб</p>
@@ -345,7 +347,9 @@ function calculateCost() {
           <p>Полосы: ${totalStrips} шт × ${heightM.toFixed(1)} м</p>
           <p>Материал: ${materialCostRetail.toFixed(2)} руб</p>
           <p>Планки: ${planksCostRetail.toFixed(2)} руб</p>
-          <p>Гребенка: ${combsCostRetail.toFixed(2)} руб</p>
+          <p>Гребенка: ${totalCombs} шт × ${combCostRetail.toFixed(
+    2,
+  )} руб = ${combsCostRetail.toFixed(2)} руб</p>
           <p>Изготовление (${percentages.retail}%): ${manufacturingFeeRetail.toFixed(2)} руб</p>
         </div>
       </div>
